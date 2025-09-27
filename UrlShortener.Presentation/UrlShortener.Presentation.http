@@ -1,6 +1,19 @@
-@UrlShortener.Presentation_HostAddress = http://localhost:5203
+@UrlShortener.Presentation_HostAddress = http://localhost:5125
 
-GET {{UrlShortener.Presentation_HostAddress}}/weatherforecast/
+### Create a shortened URL
+POST {{UrlShortener.Presentation_HostAddress}}/api/url/shorten
+Content-Type: application/json
+Accept: application/json
+
+"https://example.com/some/long/path"
+
+###
+
+### Expand a shortened URL (API-style JSON response)
+GET {{UrlShortener.Presentation_HostAddress}}/api/url/expand/{shortCode}
 Accept: application/json
 
 ###
+
+### Redirect using the short code
+GET {{UrlShortener.Presentation_HostAddress}}/{shortCode}
